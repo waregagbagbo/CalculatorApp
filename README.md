@@ -4,7 +4,7 @@
 
 ## Welcome! 👋
 
-Thanks for checking out this front-end coding challenge.
+Thanks for checking out this coding challenge.
 
 **To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
 
