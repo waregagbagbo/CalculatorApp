@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="index.css">
   
   <title>Odin Project| Calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="#" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Gabe</a>.
-  </div>
+  <div class="main">
+    <div class="calculator">
+      <!--To display the calculations-->
+      <div class="display">
+        <input type="text" id="display" disabled>
+      </div>
+    </div>
+    <!--Container for the grids-->
+    <div class="container">
+      <div class="buttons">
+        <button class="btn" id="clear">RESET</button>
+        <button class="btn" id="equals">=</button>
+        <button class="btn" id="delete">DEL</button>
+        <button class="btn" id="add">+</button>
+        <button class="btn" id="subtract">-</button>
+        <button class="btn" id="multiply">*</button>
+        <button class="btn" id="decimal">.</button>
+        <!-- Add more buttons as needed -->
+      </div>
+    </div>
+  </div> 
+  <script href="index.js"></script>
 </body>
 </html>
