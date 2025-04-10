@@ -1,0 +1,29 @@
+@import 'https://fonts.google.com/specimen/League+Spartan';
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color:hsl(222, 26%, 31%);
+    font-family:League Spartan;
+    font-weight:700;
+    justify-content:center;
+    display:flex;
+    padding:20px;
+    margin:20px;
+    height:80vh;
+    
+}
+.main{
+    width:400px;
+    height:400px;
+}
+.display{
+    background-color:hsl(224, 36%, 15%);
+    padding:30px;
+    border-radius: 10px;
+}
+.container{
+    margin-top:20px;
+}
