@@ -5,37 +5,27 @@ body{
     font-weight:700;
     padding:20px;
     margin:20px;
-}
-main{
-    padding:20px;
-    border-radius: 10px;
-    height:40%;
     display: flex;
     justify-content: center;
-    align-items:center;
-
+    height:100vh;
+    flex-direction:row;
+}
+.main{
+    width:50%;
 }
 .calculator{
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 300px; /* Adjust as needed */
-}
-.display{
     background-color:hsl(224, 36%, 15%);
-    color: white;
-    padding: 15px;
-    text-align: right;
-    font-size: 1.5em;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    word-wrap: break-word; /* To handle long results */
+    border-radius:8px;
+    padding:40px;
+    color:#fff;
 }
 .container{
     background-color: hsl(223, 31%, 20%);
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
     gap: 10px; /* Spacing between grid items */
+    border-radius:10px;
+    padding:10px;
 }
 .btn{
     border: none;
