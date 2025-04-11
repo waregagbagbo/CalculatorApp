@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
-*{
-    box-sizing: border-box;
-}
-
 body{
     background-color:hsl(222, 26%, 31%);
     font-family: 'League Spartan', sans-serif;
     font-weight:700;
     padding:40px;
+    font-size:20px;;
     margin:20px;
     display: flex;
     flex-wrap:wrap;
@@ -28,7 +25,7 @@ body{
     border: 1px solid #000;
     border-radius: 5px;
     background-color:#fff;
-    padding:3em;
+    padding:2em;
   }
 .btn{
     padding: 20px;
@@ -65,4 +62,12 @@ body{
   
   #delete:hover {
     background-color: #f57c00;
+  }
+  .display{
+    grid-column: 4 / span 1; /*Occupies the first row of all colums */
+    padding:1em;
+  }
+  #display{
+    font-family:inherit;
+    color:#fff;
   }
