@@ -1,29 +1,77 @@
-@import 'https://fonts.google.com/specimen/League+Spartan';
-
-*{
-    box-sizing: border-box;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
 body{
     background-color:hsl(222, 26%, 31%);
-    font-family:League Spartan;
+    font-family: 'League Spartan', sans-serif;
     font-weight:700;
-    justify-content:center;
-    display:flex;
     padding:20px;
     margin:20px;
-    height:80vh;
-    
 }
-.main{
-    width:400px;
-    height:400px;
+main{
+    padding:20px;
+    border-radius: 10px;
+    height:40%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+.calculator{
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px; /* Adjust as needed */
 }
 .display{
     background-color:hsl(224, 36%, 15%);
-    padding:30px;
-    border-radius: 10px;
+    color: white;
+    padding: 15px;
+    text-align: right;
+    font-size: 1.5em;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    word-wrap: break-word; /* To handle long results */
 }
 .container{
-    margin-top:20px;
+    background-color: hsl(223, 31%, 20%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 10px; /* Spacing between grid items */
 }
+.btn{
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+.btn:hover{
+    cursor:pointer;
+}
+
+#clear {
+    grid-column: 1 / span 2; /* Occupies the first two columns */
+    background-color: #f44336; /* Red */
+  }
+  
+  #clear:hover {
+    background-color: #d32f2f;
+  }
+  
+  #equals {
+    grid-column: 3 / span 2; /* Occupies the last two columns */
+    background-color: #4CAF50; /* Green */
+  }
+  
+  #equals:hover {
+    background-color: #388E3C;
+  }
+  
+  #delete {
+    background-color: #ff9800; /* Orange */
+  }
+  
+  #delete:hover {
+    background-color: #f57c00;
+  }
