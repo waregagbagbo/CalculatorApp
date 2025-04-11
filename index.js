@@ -1,3 +1,14 @@
+// create DOM for the display
+const result = document.getElementById('display');
+const equality = document.getElementById("equals");
+const reset =  document.getElementById('clear');
+
+
+
+
+
+
+
 // create a function to handle the operators.
 function operations(){
     let num = 1;

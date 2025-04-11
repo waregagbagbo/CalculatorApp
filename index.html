@@ -4,52 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="index.css">
+  <link rel="stylesheet" href="index.css">
   
   <title>Odin Project| Calculator app</title>
 </head>
-<body>
-  <div class="main">
-    <div class="calculator">
-      <!--To display the calculations-->
-      <div class="display">
-        <input type="text" id="display" disabled>
-      </div>
-    </div>
-    <!--Container for the grids-->
-    <div class="container">
+<body>     
       <div class="grid-items">
-        <button class="btn" id="clear">RESET</button>
-        <button class="btn" id="equals">=</button>
+        <div class="display">
+          <div class="display-text" id="display">
+
+          </div>
+        </div>
+        <button class="btn" id="seven">7</button>
+        <button class="btn" id="eight">8</button>
+        <button class="btn" id="nine">9</button>
         <button class="btn" id="delete">DEL</button>
+        <button class="btn" id="four">4</button>
+        <button class="btn" id="five">5</button>
+        <button class="btn" id="six">6</button>
         <button class="btn" id="add">+</button>
-        <button class="btn" id="subtract">-</button>
-        <button class="btn" id="multiply">*</button>
-        <button class="btn" id="decimal">.</button>
-        <button class="btn" id="divide">/</button>
         <!-- Add more buttons as needed -->         
          <button class="btn" id="one">1</button>
          <button class="btn" id="two">2</button>
          <button class="btn" id="three">3</button>
-         <button class="btn" id="four">4</button>
-         <button class="btn" id="five">5</button>
-         <button class="btn" id="six">6</button>
-         <button class="btn" id="seven">7</button>
-         <button class="btn" id="eight">8</button>
-         <button class="btn" id="nine">9</button>
-
-
-
-
-
-
-
-
-
-
+         <button class="btn" id="subtract">-</button>
+         <button class="btn" id="decimal">.</button>
+         <button class="btn" id="zero">0</button>
+         <button class="btn" id="divide">/</button>
+         <button class="btn" id="multiply">*</button>
+         <button class="btn" id="clear">RESET</button>
+         <button class="btn" id="equals">=</button>
       </div>
-    </div>
-  </div> 
-  <script href="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
