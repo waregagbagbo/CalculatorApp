@@ -7,7 +7,7 @@ const deleteBtn = document.getElementById('delete');
 
 // EventListeners
 resetBtn.addEventListener('click',function(){
-    result.textContent = " "
+    result.textContent = ""
 });
 
 deleteBtn.addEventListener('click',function(){
@@ -21,44 +21,32 @@ equalBtn.addEventListener('click',function(){
     catch{
         result.textContent = "Error"
     }
-});
+})
 
 // loop through the buttons
-/*btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        // check if the button is a number or an operator
-        if(btn.classList.contains('number')){
-            result.textContent += btn.textContent;
-        }
-        else if(btn.classList.contains('operator')){
-            result.innerHTML += operator;
-        }
-    })
-})*/
 btns.forEach((btn) =>{
     btn.addEventListener('click', function(){
         result.textContent += btn.textContent;
     })
 })
 // create a function to handle the operators.
-function operations(){
-    let num = 0;
-    let operator;
-    // set conditions for the operations
-        if(operator === "+"){
-            return num + num;
-        }
-        else if(operator === "-"){
-            return num - num;
-        }
-        else if(operator === "/"){
-            return num / num;
-        }
-        else if(operator === "*"){
-            return num * num;
-        }
-        else if(operator === "-"){
-            return num - num;
-        }
-    }
-operations()
+function operations(a, operator, b){
+
+    // use switch case
+    switch(operator){
+        case "+":
+            return a + b;
+        case "-":
+            return a - b;
+        case "*":
+            return a * b;
+
+        case "/":
+            return a / b;
+
+        default:
+            throw new error ('Unsupported');
+            
+    }    
+}
+operations();
