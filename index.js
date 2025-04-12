@@ -7,7 +7,7 @@ const deleteBtn = document.getElementById('delete');
 
 // EventListeners
 resetBtn.addEventListener('click',function(){
-    result.textContent = ""
+    
 });
 
 deleteBtn.addEventListener('click',function(){
@@ -19,7 +19,7 @@ equalBtn.addEventListener('click',function(){
         result.textContent = operations();
     }
     catch{
-        result.textContent = "Error"
+        result.textContent = ""
     }
 })
 
@@ -45,8 +45,7 @@ function operations(a, operator, b){
             return a / b;
 
         default:
-            throw new error ('Unsupported');
-            
+            throw new error ('Unsupported');            
     }    
 }
 operations();
