@@ -38,12 +38,12 @@ body{
     cursor:pointer;
 }
 
-#clear {
+#reset {
     grid-column: 1 / span 2; /* Occupies the first two columns */
     background-color:hsl(225, 21%, 49%); /* Red */
   }
   
-  #clear:hover {
+  #reset:hover {
     background-color:hsl(6, 70%, 34%);
   }
   

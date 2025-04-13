@@ -1,14 +1,12 @@
 // create DOM for the display
 const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");
-const resetBtn =  document.getElementById('clear');
+const resetBtn =  document.getElementById('reset');
 const btns = document.querySelectorAll('.btn');
 const deleteBtn = document.getElementById('delete');
 
 // EventListeners
-resetBtn.addEventListener('click',function(){
-    
-});
+
 
 deleteBtn.addEventListener('click',function(){
     result.innerHTML = 0;
@@ -26,6 +24,11 @@ equalBtn.addEventListener('click',function(){
 // loop through the buttons
 btns.forEach((btn) =>{
     btn.addEventListener('click', function(){
+        if(btn === "CLEAR"){
+            result.textContent = ""
+            return;
+
+        }
         result.textContent += btn.textContent;
     })
 })
