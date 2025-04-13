@@ -6,32 +6,37 @@ const btns = document.querySelectorAll('.btn');
 const deleteBtn = document.getElementById('delete');
 
 // EventListeners
+result.addEventListener('click',function(){
 
+})
 
 deleteBtn.addEventListener('click',function(){
     result.innerHTML = 0;
 });
 
+function clearDisplay(){
+    result.value =""
+}
+
 equalBtn.addEventListener('click',function(){
     try{
-        result.textContent = operations();
-    }
-    catch{
-        result.textContent = ""
-    }
+        result.textContent = " "
+    } 
+    catch(error){
+        error.throw ("error");
+        
+    } 
 })
 
 // loop through the buttons
-btns.forEach((btn) =>{
-    btn.addEventListener('click', function(){
-        if(btn === "CLEAR"){
-            result.textContent = ""
-            return;
-
-        }
+btns.forEach(btn =>{
+    btn.addEventListener('click',function(){
         result.textContent += btn.textContent;
     })
 })
+
+
+
 // create a function to handle the operators.
 function operations(a, operator, b){
 
