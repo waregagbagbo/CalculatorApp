@@ -1,7 +1,7 @@
 // create DOM for the display
-const result = document.getElementById('display');
+/*const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");
-const resetBtn =  document.getElementById('reset');
+const resetBtn =  document.getElementById('clear');
 const btns = document.querySelectorAll('.btn');
 const deleteBtn = document.getElementById('delete');
 
@@ -11,16 +11,12 @@ result.addEventListener('click',function(){
 })
 
 deleteBtn.addEventListener('click',function(){
-    result.innerHTML = 0;
+    result.textContent = result.textContent.slice(0,-1)
 });
-
-function clearDisplay(){
-    result.value =""
-}
 
 equalBtn.addEventListener('click',function(){
     try{
-        result.textContent = " "
+        result.textContent = operations()
     } 
     catch(error){
         error.throw ("error");
@@ -34,12 +30,11 @@ btns.forEach(btn =>{
         result.textContent += btn.textContent;
     })
 })
-
+*/
 
 
 // create a function to handle the operators.
-function operations(a, operator, b){
-
+function operations(a,operator, b){
     // use switch case
     switch(operator){
         case "+":
@@ -53,7 +48,7 @@ function operations(a, operator, b){
             return a / b;
 
         default:
-            throw new error ('Unsupported');            
+            return 'Error'            
     }    
 }
-operations();
+console.log(operations())
