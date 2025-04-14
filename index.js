@@ -1,5 +1,11 @@
+//declare global vars
+let toDisplay = false;
+let operator= null;
+let firstValue = null;
+
+
 // create DOM for the display
-/*const result = document.getElementById('display');
+const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");
 const resetBtn =  document.getElementById('clear');
 const btns = document.querySelectorAll('.btn');
@@ -30,7 +36,7 @@ btns.forEach(btn =>{
         result.textContent += btn.textContent;
     })
 })
-*/
+
 
 
 // create a function to handle the operators.
