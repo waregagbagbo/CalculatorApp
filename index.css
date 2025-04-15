@@ -27,7 +27,7 @@ body{
     background-color:#fff;
     padding:2em;
   }
-.btn{
+.btn,.btn-operator{
     padding: 20px;
     font-size: 1em;
     border-radius: 8px;
