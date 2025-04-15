@@ -65,10 +65,14 @@ function setOperator(nextOperator){
         toDisplay = true;
     
 }
-
 //create the calculator evaluation to give results when triggered
+// when the equal button is clicked
+// check if the operator is not null and toDisplay is false
+// if so, evaluate the result and set the operator to null
+// and toDisplay to false
+// and set the firstValue to null
 function evaluate(){
-    if(operator !== null || toDisplay) return;
+    if(operator === null || toDisplay) return;
     const secondOperand = result.textContent;
     result.textContent =  operations(firstValue,operator, secondOperand);
     operator = null;
