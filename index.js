@@ -10,11 +10,12 @@ const equalBtn = document.getElementById("equals");
 const resetBtn =  document.getElementById('clear');
 const numberBtn = document.querySelectorAll('.number');
 const deleteBtn = document.getElementById('delete');
-const operatorBtn = document.querySelectorAll('.operator');
+const operatorBtn = document.querySelectorAll('.operator'); // Uncommented the operatorBtn
 
 // EventListeners to display on screen
+// when the display is clicked
 result.addEventListener('click',function(){
-    result.textContent = ""
+    result.textContent = "0"
 })
 
 // delete button
@@ -41,7 +42,6 @@ resetBtn.addEventListener('click',() =>{
     result.textContent = "0";
 });
 
-
 // loop through the buttons for numbers
 numberBtn.forEach(btn =>{
     btn.addEventListener('click',() => appendNumber(btn.textContent));
@@ -49,8 +49,9 @@ numberBtn.forEach(btn =>{
 // set the equal button
 equalBtn.addEventListener('click',() => {
     evaluate();
+    firstValue = null;
+    operator = null;
 });
-
 
 // create the function for number click
 function appendNumber(number){
@@ -65,23 +66,24 @@ function appendNumber(number){
 
 // loop through the buttons for operators
 operatorBtn.forEach((btn) =>{
-    btn.addEventListener('click',() => setOperator(btn.dataset.operator));
+    btn.addEventListener('click',() => setOperator(btn.textContent));
 });
-    
-function setOperator(nextOperator){
-    //set the conditions
-    if(operator !== null) evaluate();
-        firstValue = result.textContent
-        operator = nextOperator
-        toDisplay = true;
-    
+
+// create a function to set the operator
+function setOperator(op){
+    // check if the operator is not null and toDisplay is false
+    // if so, evaluate the result and set the operator to null
+    // and toDisplay to false
+    if(operator !== null && !toDisplay){
+        evaluate();
+    }
+    // set the operator to the button id
+    operator = op;
+    firstValue = result.textContent;
+    toDisplay = true;    
 }
-//create the calculator evaluation to give results when triggered
-// when the equal button is clicked
-// check if the operator is not null and toDisplay is false
-// if so, evaluate the result and set the operator to null
-// and toDisplay to false
-// and set the firstValue to null
+
+
 function evaluate(){
     if(operator === null || toDisplay) return;
     const secondOperand = result.textContent;
