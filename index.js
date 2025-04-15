@@ -9,28 +9,23 @@ const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");
 const resetBtn =  document.getElementById('clear');
 const numberBtn = document.querySelectorAll('.number');
-const deleteBtn = document.getElementById('delete');
+const deleteBtn = document.getElementById('delete')
 const operatorBtn = document.querySelectorAll('.operator'); // Uncommented the operatorBtn
 
 // EventListeners to display on screen
 // when the display is clicked
 result.addEventListener('click',function(){
-    result.textContent = ""
+    result.textContent = "0"
 })
 
 // delete button
 deleteBtn.addEventListener('click',() =>{
-    // check if the result is not empty
-    if(result.textContent === "") return;
-    // check if the result is not 0
-    if(result.textContent === "0") return;
-    // check if the result is not a single digit
-    if(result.textContent.length === 1){
-        result.textContent = "0";
-        return;
-    }
-    // remove the last digit from the result
-    result.textContent = result.textContent.slice(0,-1)
+    if (result.textContent !== '0') {
+        result.textContent = result.textContent.slice(0, -1);
+        if (result.textContent === '') {
+          result.textContent = '0';
+        }
+      }
 });
 
 // set the clear button to reset the display
@@ -66,7 +61,7 @@ function appendNumber(number){
 
 // loop through the buttons for operators
 operatorBtn.forEach((btn) =>{
-    btn.addEventListener('click',() => setOperator(btn.data));
+    btn.addEventListener('click',() => setOperator(btn.textContent));
 });
 
 // create a function to set the operator
@@ -79,8 +74,8 @@ function setOperator(nextOperator) {
 
 function evaluate(){
     if(operator === null || toDisplay) return;
-    let secondOperand = result.textContent;
-    result.textContent =  operations(firstValue,operator, secondOperand);
+    let secondValue = result.textContent;
+    result.textContent =  operations(firstValue,operator, secondValue);
     operator = null;    
 
 }
