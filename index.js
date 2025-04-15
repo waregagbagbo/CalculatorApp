@@ -13,7 +13,6 @@ const deleteBtn = document.getElementById('delete')
 const operatorBtn = document.querySelectorAll('.operator'); // Uncommented the operatorBtn
 
 // EventListeners to display on screen
-// when the display is clicked
 result.addEventListener('click',function(){
     result.textContent = "0"
 })
@@ -28,8 +27,7 @@ deleteBtn.addEventListener('click',() =>{
       }
 });
 
-// set the clear button to reset the display
-// when clicked
+// set the clear button to reset the display when clicked
 resetBtn.addEventListener('click',() =>{
     firstValue = null;
     operator = null;
@@ -69,25 +67,27 @@ function setOperator(nextOperator) {
     if (operator !== null) evaluate();
     firstValue = result.textContent;
     operator = nextOperator;
+    result.textContent += `${operator}`
     toDisplay = true;
   }
 
 function evaluate(){
     if(operator === null || toDisplay) return;
     let secondValue = result.textContent;
-    result.textContent =  operations(firstValue,operator, secondValue);
-    operator = null;    
-
+     // Display the calculation process before evaluating
+    //result.textContent = `${firstValue} ${operator} ${secondValue}`;
+    result.textContent = operations(firstValue, operator, secondValue);
+    operator = null;
 }
 
 // create a function to handle the operators.
 function operations(a,operator, b){
-    //allow convertion on integers to float
+    //allow convertion of integers to float
     let first = parseFloat(a);
     let second = parseFloat(b);
 
     if(isNaN(first) || isNaN(second))
-        return '';
+        return ' ';
     // use switch case
     switch(operator){
         case "+":
