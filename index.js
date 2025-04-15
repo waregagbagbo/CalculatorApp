@@ -15,7 +15,7 @@ const operatorBtn = document.querySelectorAll('.operator'); // Uncommented the o
 // EventListeners to display on screen
 // when the display is clicked
 result.addEventListener('click',function(){
-    result.textContent = "0"
+    result.textContent = ""
 })
 
 // delete button
@@ -66,37 +66,30 @@ function appendNumber(number){
 
 // loop through the buttons for operators
 operatorBtn.forEach((btn) =>{
-    btn.addEventListener('click',() => setOperator(btn.textContent));
+    btn.addEventListener('click',() => setOperator(btn.data));
 });
 
 // create a function to set the operator
-function setOperator(op){
-    // check if the operator is not null and toDisplay is false
-    // if so, evaluate the result and set the operator to null
-    // and toDisplay to false
-    if(operator !== null && !toDisplay){
-        evaluate();
-    }
-    // set the operator to the button id
-    operator = op;
+function setOperator(nextOperator) {
+    if (operator !== null) evaluate();
     firstValue = result.textContent;
-    toDisplay = true;    
-}
-
+    operator = nextOperator;
+    toDisplay = true;
+  }
 
 function evaluate(){
     if(operator === null || toDisplay) return;
-    const secondOperand = result.textContent;
+    let secondOperand = result.textContent;
     result.textContent =  operations(firstValue,operator, secondOperand);
-    operator = null;
+    operator = null;    
 
 }
 
 // create a function to handle the operators.
 function operations(a,operator, b){
     //allow convertion on integers to float
-    const first = parseFloat(a);
-    const second = parseFloat(b);
+    let first = parseFloat(a);
+    let second = parseFloat(b);
 
     if(isNaN(first) || isNaN(second))
         return '';
