@@ -18,16 +18,27 @@ result.addEventListener('click',function(){
 })
 
 // delete button
-deleteBtn.addEventListener('click',function(){
+deleteBtn.addEventListener('click',() =>{
+    // check if the result is not empty
+    if(result.textContent === "") return;
+    // check if the result is not 0
+    if(result.textContent === "0") return;
+    // check if the result is not a single digit
+    if(result.textContent.length === 1){
+        result.textContent = "0";
+        return;
+    }
+    // remove the last digit from the result
     result.textContent = result.textContent.slice(0,-1)
 });
 
-// set the clear button
+// set the clear button to reset the display
+// when clicked
 resetBtn.addEventListener('click',() =>{
-    result.textContent = "0";
     firstValue = null;
     operator = null;
     toDisplay = false;
+    result.textContent = "0";
 });
 
 
