@@ -8,12 +8,13 @@ let firstValue = null;
 const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");
 const resetBtn =  document.getElementById('clear');
-const btns = document.querySelectorAll('.btn');
+const numberBtn = document.querySelectorAll('.number');
 const deleteBtn = document.getElementById('delete');
+const operatorBtn = document.querySelectorAll('.operator');
 
 // EventListeners to display on screen
 result.addEventListener('click',function(){
-
+    result.textContent = ""
 })
 
 // delete button
@@ -21,11 +22,7 @@ deleteBtn.addEventListener('click',function(){
     result.textContent = result.textContent.slice(0,-1)
 });
 
-equalBtn.addEventListener('click',evaluate(){
-    
-})
 // set the clear button
-//resetBtn.addEventListener('click',clear);
 resetBtn.addEventListener('click',() =>{
     result.textContent = "0";
     firstValue = null;
@@ -33,19 +30,16 @@ resetBtn.addEventListener('click',() =>{
     toDisplay = false;
 });
 
-/*function clear(){
-    result.textContent ="0";
-    firstValue = null;
-    operator = null;
-    toDisplay = false;
-}*/
 
+// loop through the buttons for numbers
+numberBtn.forEach(btn =>{
+    btn.addEventListener('click',() => appendNumber(btn.textContent));
+});
+// set the equal button
+equalBtn.addEventListener('click',() => {
+    evaluate();
+});
 
-// loop through the buttons fro numbers
-btns.forEach(btn =>{
-    btn.addEventListener('click',() => appendNumber(btn.textContent))
-        result.textContent += btn.textContent;
-    });
 
 // create the function for number click
 function appendNumber(number){
@@ -59,10 +53,10 @@ function appendNumber(number){
 }
 
 // loop through the buttons for operators
-btnOperator.forEach(btns =>{
-    btns.addEventListener('click',() => setOperator(btns.dataset.operator))
+operatorBtn.forEach((btn) =>{
+    btn.addEventListener('click',() => setOperator(btn.dataset.operator));
 });
-
+    
 function setOperator(nextOperator){
     //set the conditions
     if(operator !== null) evaluate();
