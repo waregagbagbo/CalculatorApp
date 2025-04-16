@@ -10,7 +10,8 @@ const equalBtn = document.getElementById("equals");
 const resetBtn =  document.getElementById('clear');
 const numberBtn = document.querySelectorAll('.number');
 const deleteBtn = document.getElementById('delete')
-const operatorBtn = document.querySelectorAll('.operator'); // Uncommented the operatorBtn
+const operatorBtn = document.querySelectorAll('.operator');
+const decimalBtn = document.querySelector('#decimal');
 
 // EventListeners to display on screen
 result.addEventListener('click',function(){
@@ -34,6 +35,13 @@ resetBtn.addEventListener('click',() =>{
     toDisplay = false;
     result.textContent = "0";
 });
+// set the decimal button
+decimalBtn.addEventListener('click',() => {
+    if (!result.textContent.includes('.')) {
+        result.textContent += '.';
+    }
+});
+
 
 // loop through the buttons for numbers
 numberBtn.forEach(btn =>{
@@ -73,21 +81,17 @@ function setOperator(nextOperator) {
 
 function evaluate(){
     if(operator === null || toDisplay) return;
-    let secondValue = result.textContent;
-     // Display the calculation process before evaluating
-    //result.textContent = `${firstValue} ${operator} ${secondValue}`;
+    let secondValue = parseFloat(result.textContent);
     result.textContent = operations(firstValue, operator, secondValue);
-    operator = null;
+    toDisplay = true; // set to display
 }
 
 // create a function to handle the operators.
 function operations(a,operator, b){
-    //allow convertion of integers to float
-    let first = parseFloat(a);
-    let second = parseFloat(b);
-
-    if(isNaN(first) || isNaN(second))
-        return ' ';
+    let first = parseFloat(a); // convert to float
+    let second = parseFloat(b); // convert to float
+    if(isNaN(first) || isNaN(second)) // check if the values are numbers
+        return ''; // return empty string if not numbers
     // use switch case
     switch(operator){
         case "+":
@@ -99,6 +103,7 @@ function operations(a,operator, b){
 
         case "/":
             return first / second;
+            
 
         default:
             return 'Error'            
