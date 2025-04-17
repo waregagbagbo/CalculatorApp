@@ -37,7 +37,11 @@ resetBtn.addEventListener('click',() =>{
 });
 // set the decimal button
 decimalBtn.addEventListener('click',() => {
-    if (!result.textContent.includes('.')) {
+    if(toDisplay){
+        result.textContent = '0.';
+        toDisplay = false; // set to display
+    }
+    else if(!result.textContent.includes('.')){
         result.textContent += '.';
     }
 });
