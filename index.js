@@ -1,7 +1,7 @@
 //declare global vars
-let toDisplay = false;
-let operator= null;
-let firstValue = null;
+let toDisplay = false; // determine if next input should replace the current display
+let operator= null; // store the operator
+let firstValue = null; // stores the first operand
 
 
 // create DOM for the display
@@ -58,11 +58,11 @@ equalBtn.addEventListener('click',() => {
     operator = null;
 });
 
-// create the function for number click
+// create the function for number to display on screen
 function appendNumber(number){
     if(result.textContent === '0' || toDisplay){
         result.textContent = number;
-        toDisplay = false;
+        toDisplay = false; // reset toDisplay after setting number  
     }
     else{
         result.textContent += number
@@ -74,14 +74,20 @@ operatorBtn.forEach((btn) =>{
     btn.addEventListener('click',() => setOperator(btn.textContent));
 });
 
-// create a function to set the operator
+// create a function to set the operator for the second operand
+// set the operator to the operator clicked
+
 function setOperator(nextOperator) {
     if (operator !== null) evaluate();
-    firstValue = result.textContent;
-    operator = nextOperator;
-    result.textContent += `${operator}`
-    toDisplay = true;
-  }
+    firstValue = result.textContent; // store the first operand
+    operator = nextOperator; 
+    // check if the operator is not null
+   /* if (nextOperator !== null) { // ensure nextOperator is valid
+        operator = nextOperator; // store the operator clicked
+        //result.textContent += `${operator}`
+        toDisplay = true; // set to display
+    }*/
+}
 
 function evaluate(){
     if(operator === null || toDisplay) return;
@@ -96,20 +102,31 @@ function operations(a,operator, b){
     let second = parseFloat(b); // convert to float
     if(isNaN(first) || isNaN(second)) // check if the values are numbers
         return ''; // return empty string if not numbers
+        
+    let calResult= 0; // store the result
+
+    
     // use switch case
     switch(operator){
         case "+":
-            return first + second;
+            calResult = first + second;
+            break;
         case "-":
-            return first - second;
+            calResult = first - second;
+            break;
         case "*":
-            return first * second;
+            calResult = first * second;
+            break;
 
         case "/":
-            return first / second;
-            
+            calResult = first / second;            
+            break;
 
         default:
             return 'Error'            
-    }    
+    }
+
+    // format result to handle decimal places
+    return parseFloat(result.textContent).toFixed(4); // format to 4 decimal places  
+
 }
