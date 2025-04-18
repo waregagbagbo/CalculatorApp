@@ -38,10 +38,16 @@ resetBtn.addEventListener('click',() =>{
 // set the decimal button
 decimalBtn.addEventListener('click',() => {
     if(toDisplay){
-        result.textContent = '0.';
-        toDisplay = false; // set to display
+        let currntDisplay = result.textContent; // get the current display
+        result.textContent = currntDisplay + '.'; // append the decimal to the display
+        toDisplay = false; // set to display   
+        //result.textContent = '0.';
+        //toDisplay = false; // set to display
     }
-    else if(!result.textContent.includes('.')){
+    else if(!result.textContent.includes('.') || 
+    (operator !== null && !result.textContent.split(operator).pop().includes('.'))){
+         // This checks if there's no decimal in the current number
+        // If an operator exists, it checks only the part after the operator
         result.textContent += '.';
     }
 });
@@ -81,30 +87,29 @@ function setOperator(nextOperator) {
     if (operator !== null) evaluate();
     firstValue = result.textContent; // store the first operand
     operator = nextOperator; 
+    toDisplay = true; // set to display
     // check if the operator is not null
-   /* if (nextOperator !== null) { // ensure nextOperator is valid
+   if (nextOperator !== null) { // ensure nextOperator is valid
         operator = nextOperator; // store the operator clicked
-        //result.textContent += `${operator}`
+        result.textContent += `${operator}`; // display the operator
         toDisplay = true; // set to display
-    }*/
+    }
 }
 
 function evaluate(){
     if(operator === null || toDisplay) return;
-    let secondValue = parseFloat(result.textContent);
+    let secondValue = result.textContent.split(operator).pop(); // get the second operand
     result.textContent = operations(firstValue, operator, secondValue);
     toDisplay = true; // set to display
 }
-
 // create a function to handle the operators.
 function operations(a,operator, b){
     let first = parseFloat(a); // convert to float
     let second = parseFloat(b); // convert to float
     if(isNaN(first) || isNaN(second)) // check if the values are numbers
         return ''; // return empty string if not numbers
-        
-    let calResult= 0; // store the result
 
+    let calResult= 0; // store the result
     
     // use switch case
     switch(operator){
@@ -124,9 +129,7 @@ function operations(a,operator, b){
 
         default:
             return 'Error'            
-    }
-
+    }    
     // format result to handle decimal places
-    return parseFloat(result.textContent).toFixed(4); // format to 4 decimal places  
-
+  return calResult.toFixed(); // format to 4 decimal places
 }
