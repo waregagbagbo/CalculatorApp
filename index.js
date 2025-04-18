@@ -37,18 +37,15 @@ resetBtn.addEventListener('click',() =>{
 });
 // set the decimal button
 decimalBtn.addEventListener('click',() => {
-    if(toDisplay){
-        let currntDisplay = result.textContent; // get the current display
-        result.textContent = currntDisplay + '.'; // append the decimal to the display
-        toDisplay = false; // set to display   
-        //result.textContent = '0.';
-        //toDisplay = false; // set to display
+    if(toDisplay){   
+        result.textContent = '0';
+        //toDisplay = true; // set to display
     }
-    else if(!result.textContent.includes('.') || 
-    (operator !== null && !result.textContent.split(operator).pop().includes('.'))){
-         // This checks if there's no decimal in the current number
-        // If an operator exists, it checks only the part after the operator
+    else if(!result.textContent.includes('.')){
         result.textContent += '.';
+    } 
+    else if (operator !== null && !result.textContent.split(operator).pop().includes('.')){
+        result.textContent += '.'; // Allow decimal after a new operator
     }
 });
 
@@ -90,22 +87,28 @@ function setOperator(nextOperator) {
     firstValue = result.textContent; // store the first operand
     operator = nextOperator;     
     result.textContent = firstValue + operator; // display the operator and first value
-    toDisplay = false;
+    toDisplay = true;
 }   
 
 function evaluate(){
     if(operator === null || firstValue === null){
         return;
     } 
-    const secondValue = result.textContent;
+    let secondValue = result.textContent;
 
-    if (secondValue === "")return;
+    if (secondValue === ""){
+        return;
+    }
+    if(firstValue !== null && secondValue !== null){
+        result.textContent = operations(firstValue, operator, secondValue);
+        toDisplay = true;
+        firstValue = null;
+        operator = null;
+        }
+        
+    }
 
-    result.textContent = operations(firstValue, operator, secondValue);
-    toDisplay = true;
-    firstValue = null;
-    operator = null;
-}
+    
 
 // create a function to handle the operators.
 function operations(a,operator, b){
@@ -114,28 +117,27 @@ function operations(a,operator, b){
 
     if(isNaN(first) || isNaN(second)) // check if the values are numbers
         return ''; // return empty string if not numbers
-
-    let calResult= 0; // store the result
     
     // use switch case
     switch(operator){
         case "+":
-            calResult = first + second;
+            first + second;
             break;
         case "-":
-            calResult = first - second;
+            first - second;
             break;
         case "*":
-            calResult = first * second;
+            first * second;
             break;
 
         case "/":
-            calResult = first / second;            
-            break;
+            if(second === 0){
+                return 'Wrong Operation'; // check for division by zero
+            }
+            return first / second;                       
 
         default:
             return 'Error'            
     }    
-    // format result to handle decimal places
-  return calResult.toFixed(); // format to 4 decimal places
+    
 }
