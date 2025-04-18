@@ -39,7 +39,6 @@ resetBtn.addEventListener('click',() =>{
 decimalBtn.addEventListener('click',() => {
     if(toDisplay){   
         result.textContent = '0';
-        //toDisplay = true; // set to display
     }
     else if(!result.textContent.includes('.')){
         result.textContent += '.';
@@ -107,37 +106,40 @@ function evaluate(){
         }
         
     }
-
     
 
 // create a function to handle the operators.
-function operations(a,operator, b){
+function operations(a, operator, b) {
     let first = parseFloat(a); // convert to float
     let second = parseFloat(b); // convert to float
 
-    if(isNaN(first) || isNaN(second)) // check if the values are numbers
+    if (isNaN(first) || isNaN(second)) {
         return ''; // return empty string if not numbers
-    
+    }
+
+    let calResult = 0; // store the result
+
     // use switch case
-    switch(operator){
+    switch (operator) {
         case "+":
-            first + second;
+            calResult = first + second;
             break;
         case "-":
-            first - second;
+            calResult = first - second;
             break;
         case "*":
-            first * second;
+            calResult = first * second;
             break;
-
         case "/":
-            if(second === 0){
+            if (second === 0) {
                 return 'Wrong Operation'; // check for division by zero
             }
-            return first / second;                       
+            calResult = first / second;
+            break;
 
         default:
-            return 'Error'            
-    }    
-    
+            return 'Error';
+    }
+
+    return calResult.toString(); // Return the calculated result as a string
 }
