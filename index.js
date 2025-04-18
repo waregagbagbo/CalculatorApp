@@ -84,28 +84,34 @@ operatorBtn.forEach((btn) =>{
 // set the operator to the operator clicked
 
 function setOperator(nextOperator) {
-    if (operator !== null) evaluate();
-    firstValue = result.textContent; // store the first operand
-    operator = nextOperator; 
-    toDisplay = true; // set to display
-    // check if the operator is not null
-   if (nextOperator !== null) { // ensure nextOperator is valid
-        operator = nextOperator; // store the operator clicked
-        result.textContent += `${operator}`; // display the operator
-        toDisplay = true; // set to display
+    if (operator !== null && !toDisplay){
+        evaluate();
     }
-}
+    firstValue = result.textContent; // store the first operand
+    operator = nextOperator;     
+    result.textContent = firstValue + operator; // display the operator and first value
+    toDisplay = false;
+}   
 
 function evaluate(){
-    if(operator === null || toDisplay) return;
-    let secondValue = result.textContent.split(operator).pop(); // get the second operand
+    if(operator === null || firstValue === null){
+        return;
+    } 
+    const secondValue = result.textContent;
+
+    if (secondValue === "")return;
+
     result.textContent = operations(firstValue, operator, secondValue);
-    toDisplay = true; // set to display
+    toDisplay = true;
+    firstValue = null;
+    operator = null;
 }
+
 // create a function to handle the operators.
 function operations(a,operator, b){
     let first = parseFloat(a); // convert to float
     let second = parseFloat(b); // convert to float
+
     if(isNaN(first) || isNaN(second)) // check if the values are numbers
         return ''; // return empty string if not numbers
 
