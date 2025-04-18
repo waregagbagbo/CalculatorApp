@@ -65,7 +65,7 @@ body{
   .calculator{
     grid-column: 4 / span 1; /*Occupies the first row of all colums */
     padding:1rem;
-    width:50px;
+    width:60px;
     max-width:80px;
     overflow:hidden;
   }
