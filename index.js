@@ -68,7 +68,7 @@ equalBtn.addEventListener('click',() => {
 function appendNumber(number){
     if(result.textContent === '0' || toDisplay){
         result.textContent = number;
-        toDisplay = false; // reset toDisplay after setting number  
+        toDisplay = false; // maintain existing display
     }
     else{
         result.textContent += number
