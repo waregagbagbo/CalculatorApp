@@ -10,14 +10,13 @@ body{
     flex-wrap:wrap;
     justify-content: center;
 }
-
 .grid-items{
     background-color: hsl(223, 31%, 20%);
     display: grid;
     grid-template-columns:repeat(3,1fr);
     grid-template-rows: 100px;
     gap: 10px;
-    padding:20px;
+    padding:1em;
     border-radius:10px;
 
 }
@@ -38,7 +37,7 @@ body{
     cursor:pointer;
 }
 
-#reset {
+#clear {
     grid-column: 1 / span 2; /* Occupies the first two columns */
     background-color:hsl(225, 21%, 49%); /* Red */
   }
@@ -63,9 +62,12 @@ body{
   #delete:hover {
     background-color: #f57c00;
   }
-  .display{
+  .calculator{
     grid-column: 4 / span 1; /*Occupies the first row of all colums */
-    padding:1em;
+    padding:1rem;
+    width:50px;
+    max-width:80px;
+    overflow:hidden;
   }
   #display{
     font-family:inherit;
