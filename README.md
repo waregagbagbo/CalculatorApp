@@ -1,12 +1,13 @@
 # Calculator app
 
-![Design preview for the Calculator App](./design/desktop-preview.jpg)
+![Design preview for the Calculator App]
+(./design/desktop-preview.jpg)
 
 ## Welcome! 👋
 
-Thanks for checking out this coding challenge.
+Thanks for checking out this challenge.
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+ *** A good understanding of HTML, CSS and JavaScript.***
 
 ## Deploying your project
 
