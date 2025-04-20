@@ -90,7 +90,7 @@ switch input {
   width: 0;
   height: 0;
 }
-.slider-round {
+.slider{
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -108,12 +108,39 @@ switch input {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color:linear-gradient(180,#f57c00, #ff9800);
   transition: .4s;
+  border-radius:50px;
+}
+input{
+  visibility:hidden;
+  height:0;
+  width:0;
 }
 input:checked + .slider {
   background-color:burlywood;
 }
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+.box{
+  width:70px;
+  height:35px;
+  border-radius:50px;
+  cursor:pointer;
+  background-color: #fff;
+  box-shadow:0 0 5px rgba(0,0,0,0.2);
+  padding:5px;
+  display:flex;
+  align-items:center;
+  transition: all 0.4s ease;
+}
+.circle{
+  width:35px;
+  height:35px;
+  background-color: #fff;
+  border-radius:50%;
+  transition: transform 0.5s ease;
+  transform: translateX(100%);
+
 }
