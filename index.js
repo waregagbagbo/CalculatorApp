@@ -15,6 +15,7 @@ function applyMode() {
   if (isLightMode) {
     circle.style.transform = 'translateX(0%)';
     toggle.style.background = 'maroon';
+    circle.style.background = 'black'
     document.body.style.background = '#fff';
     document.body.style.color = '#000';
   } else {
