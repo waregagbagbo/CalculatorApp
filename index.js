@@ -14,8 +14,7 @@ let isLightMode = localStorage.getItem('mode') !== 'dark'; // true by default (l
 function applyMode() {
   if (isLightMode) {
     circle.style.transform = 'translateX(0%)';
-    toggle.style.background = 'blue';
-    circle.style.background = 'maroon';
+    toggle.style.background = 'maroon';
     document.body.style.background = '#fff';
     document.body.style.color = '#000';
   } else {
