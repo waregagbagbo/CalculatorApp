@@ -4,6 +4,39 @@ let operator= null; // store the operator
 let firstValue = null; // stores the first operand
 
 
+const toggle = document.getElementById('toggle');
+const circle = document.getElementById('circle');
+
+// Get saved mode from localStorage
+let isLightMode = localStorage.getItem('mode') !== 'dark'; // true by default (light mode)
+
+// Apply initial mode on page load
+function applyMode() {
+  if (isLightMode) {
+    circle.style.transform = 'translateX(0%)';
+    toggle.style.background = 'blue';
+    circle.style.background = 'maroon';
+    document.body.style.background = '#fff';
+    document.body.style.color = '#000';
+  } else {
+    circle.style.transform = 'translateX(100%)';
+    toggle.style.background = 'orange';
+    circle.style.background = 'white';
+    document.body.style.background = '#111';
+    document.body.style.color = '#eee';
+  }
+}
+
+applyMode();
+
+toggle.addEventListener('click', () => {
+  isLightMode = !isLightMode;
+  localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+  applyMode();
+});
+
+
+
 // create DOM for the display
 const result = document.getElementById('display');
 const equalBtn = document.getElementById("equals");

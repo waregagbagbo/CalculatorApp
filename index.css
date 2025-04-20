@@ -135,12 +135,11 @@ input:checked + .slider:before {
   align-items:center;
   transition: all 0.4s ease;
 }
-.circle{
-  width:35px;
-  height:35px;
+.circle {
+  width: 35px;
+  height: 35px;
   background-color: #fff;
-  border-radius:50%;
+  border-radius: 50%;
   transition: transform 0.5s ease;
-  transform: translateX(100%);
-
+  transform: translateX(0%);
 }
