@@ -79,17 +79,18 @@ body{
   }
 
 .switch{
-  display:inline-block;
+  display:block;
   position: relative;
   width:60px;
   height:30px;
+  
 }
 switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.slider {
+.slider-round {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -98,6 +99,7 @@ switch input {
   bottom: 0;
   background-color: grey;
   transition: .4s;
+  border-radius: 200px;
 }
 .slider:before {
   position: absolute;
