@@ -99,14 +99,13 @@ input:checked + .slider:before {
 .box{
   width:70px;
   height:35px;
-  border-radius:90px;
+  border-radius:170px;
   cursor:pointer;
   background-color: #fff;
   box-shadow:0 0 5px rgba(0,0,0,0.2);
   padding:2px;
   align-items:center;
   transition: all 0.4s ease;
-  border-radius:90px;
   display:flex;
   margin:20px;
 
