@@ -69,9 +69,9 @@ resetBtn.addEventListener('click',() =>{
     result.textContent = "0";
 });
 // set the decimal button
-decimalBtn.addEventListener('click',() => {
+/*decimalBtn.addEventListener('click',() => {
     if(toDisplay){   
-        result.textContent = '0';
+        result.textContent += '0.';
     }
     else if(!result.textContent.includes('.')){
         result.textContent += '.';
@@ -80,6 +80,7 @@ decimalBtn.addEventListener('click',() => {
         result.textContent += '.'; // Allow decimal after a new operator
     }
 });
+*/
 
 
 // loop through the buttons for numbers
@@ -169,7 +170,6 @@ function operations(a, operator, b) {
             }
             calResult = first / second;
             break;
-
         default:
             return 'Error';
     }
