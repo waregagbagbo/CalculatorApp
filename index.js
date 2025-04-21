@@ -69,19 +69,11 @@ resetBtn.addEventListener('click',() =>{
     result.textContent = "0";
 });
 // set the decimal button
-/*decimalBtn.addEventListener('click',() => {
-    if(toDisplay){   
-        result.textContent += '0.';
-    }
-    else if(!result.textContent.includes('.')){
-        result.textContent += '.';
-    } 
-    else if (operator !== null && !result.textContent.split(operator).pop().includes('.')){
+decimalBtn.addEventListener('click',() => {
+    if (operator !== null && !result.textContent.split(operator).pop().includes('.')){
         result.textContent += '.'; // Allow decimal after a new operator
     }
 });
-*/
-
 
 // loop through the buttons for numbers
 numberBtn.forEach(btn =>{
@@ -170,8 +162,14 @@ function operations(a, operator, b) {
             }
             calResult = first / second;
             break;
+        case ".":
+            if(true){
+                return calResult.toFixed(1)
+            }
+            break;            
+
         default:
-            return 'Error';
+            return 'Erro';
     }
 
     return calResult.toString(); // Return the calculated result as a string
